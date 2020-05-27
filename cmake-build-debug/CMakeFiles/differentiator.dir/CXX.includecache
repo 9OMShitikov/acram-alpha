@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/oleg/Public/Oleg/course_2/ded/differentiator/auxilary_functions/bor.cpp
+/home/oleg/Public/Oleg/course_2/ded/differentiator/auxilary_functions/Bor.cpp
 
 /home/oleg/Public/Oleg/course_2/ded/differentiator/auxilary_functions/expression_parser.h
 info.h
@@ -53,8 +53,8 @@ cmath
 -
 auxilary_functions/strings_read_functions.h
 /home/oleg/Public/Oleg/course_2/ded/differentiator/auxilary_functions/strings_read_functions.h
-auxilary_functions/bor.cpp
-/home/oleg/Public/Oleg/course_2/ded/differentiator/auxilary_functions/bor.cpp
+auxilary_functions/Bor.cpp
+/home/oleg/Public/Oleg/course_2/ded/differentiator/auxilary_functions/Bor.cpp
 auxilary_functions/my_stack.h
 /home/oleg/Public/Oleg/course_2/ded/differentiator/auxilary_functions/my_stack.h
 auxilary_functions/my_stack.cpp
