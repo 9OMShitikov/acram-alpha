@@ -155,6 +155,20 @@ public:
         CHECK
         return true;
     }
+
+    void clear() {
+        CHECK
+        for (int i = 0; i < buff_->size; ++i) {
+            buff_->buff[i].~T();
+        }
+        buff_ = (stack_buffer*) calloc(4 * 6 + 1 + 4 + 10 * sizeof(T), 1);
+        buff_ -> first_canary = 265;
+        buff_ -> buff_size = 10;
+        buff_ -> size = 0;
+        buff_ -> buff_size_copy = buff_->buff_size;
+        *second_canary_ptr() = 265;
+    }
+
     T& back() {
         CHECK
         if (buff_->size <= 0) return 0;

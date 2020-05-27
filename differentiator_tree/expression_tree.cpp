@@ -97,7 +97,7 @@ void ExpressionTree::simplify_tree() {
     while (f == 1) {
         f = dfs_simplify(new_tree, 0, 0);
         copy_tree_nodes(new_tree.size(),  new_tree.data());
-        while (new_tree.size() > 0) new_tree.pop_back();
+        new_tree.clear();
         new_tree.push_back(tree_node());
     }
 }
