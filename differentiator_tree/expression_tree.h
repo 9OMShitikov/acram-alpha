@@ -47,6 +47,7 @@ public:
     size_t print_latex_tree (MyString& str_buff);
 
 private:
+    int get_priority(int index) const;
     int dfs_find (int cur_node, int k);
     int dfs_count (int cur_node, double& value);
     int dfs_latex (int cur_node, MyString& str_buff);

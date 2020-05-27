@@ -6,6 +6,7 @@
 #include "../containers/bor/bor.h"
 #include <cstring>
 #include <cmath>
+
 enum operators {
     SUM,
     SUB,
@@ -20,32 +21,54 @@ public:
     const static int operators_count = 6;
     char operators_names [operators_count] [10];
     char operators_differentials [operators_count] [128];
+    size_t priorities [operators_count];
+    int priorities_left [operators_count];
+    int priorities_right [operators_count];
     Bor operators_bor;
 
     operators_definitions() {
         strcpy(operators_names[SUM], "+");
         strcpy(operators_differentials[SUM], "dx1 + dx2");
         operators_bor.add("+", SUM);
+        priorities[SUM] = 4;
+        priorities_left[SUM] = 4;
+        priorities_right[SUM] = 4;
 
         strcpy(operators_names[SUB], "-");
         strcpy(operators_differentials[SUB], "dx1 - dx2");
         operators_bor.add("-", SUB);
+        priorities[SUB] = 3;
+        priorities_left[SUB] = 4;
+        priorities_right[SUB] = 3;
 
         strcpy(operators_names[MUL], "*");
         strcpy(operators_differentials[MUL], "(x2*dx1) + (x1*dx2)");
         operators_bor.add("*", MUL);
+        priorities[MUL] = 2;
+        priorities_left[MUL] = 2;
+        priorities_right[MUL] = 2;
+
 
         strcpy(operators_names[DIV], "/");
         strcpy(operators_differentials[DIV], "((x2*dx1) - (x1*dx2))/(x2*x2)");
         operators_bor.add("/", DIV);
+        priorities[DIV] = 1;
+        priorities_left[DIV] = 4;
+        priorities_right[DIV] = 4;
 
         strcpy(operators_names[POW], "^");
         strcpy(operators_differentials[POW], "(x2*(x1^(x2-1))) * dx1");
         operators_bor.add("^", POW);
+        priorities[POW] = 0;
+        priorities_left[POW] = -1;
+        priorities_right[POW] = 4;
 
         strcpy(operators_names[POW1], "@");
         strcpy(operators_differentials[POW1], "(x1^x2) * (((x2 / x1) * dx1) + (ln(x1) * dx2))");
         operators_bor.add("@", POW1);
+        priorities[POW1] = 0;
+        priorities_left[POW1] = 0;
+        priorities_right[POW1] = 0;
     }
 
     double compute(operators op, double x1, double x2) {

@@ -108,3 +108,14 @@ size_t ExpressionTree::print_latex_tree (MyString& str_buff) {
 
     return str_buff.size();
 }
+
+int ExpressionTree::get_priority(int index) const{
+    ASSERT (index >= 0);
+    ASSERT(index < nodes_count);
+    tree_node node = tree_nodes.ptr[index];
+
+    if (node.type != operator_node) {
+        return -1;
+    }
+    return op_defs.priorities[index];
+}

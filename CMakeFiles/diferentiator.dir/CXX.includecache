@@ -30,10 +30,6 @@ iostream
 ../../asserts/my_assert.h
 /home/oleg/Public/Oleg/course_2/ded/differentiator/asserts/my_assert.h
 
-/home/oleg/Public/Oleg/course_2/ded/differentiator/containers/my_vector/my_vector.cpp
-my_vector.h
-/home/oleg/Public/Oleg/course_2/ded/differentiator/containers/my_vector/my_vector.h
-
 /home/oleg/Public/Oleg/course_2/ded/differentiator/containers/my_vector/my_vector.h
 cstdint
 -
@@ -105,10 +101,6 @@ containers/my_string/my_string.h
 /home/oleg/Public/Oleg/course_2/ded/differentiator/containers/my_string/my_string.h
 differentiator_tree/expression_tree.h
 /home/oleg/Public/Oleg/course_2/ded/differentiator/differentiator_tree/expression_tree.h
-
-/home/oleg/Public/Oleg/course_2/ded/differentiator/work_with_file_functions/file_work_functions.cpp
-file_work_functons.h
-/home/oleg/Public/Oleg/course_2/ded/differentiator/work_with_file_functions/file_work_functons.h
 
 /home/oleg/Public/Oleg/course_2/ded/differentiator/work_with_file_functions/file_work_functons.h
 ../asserts/my_assert.h

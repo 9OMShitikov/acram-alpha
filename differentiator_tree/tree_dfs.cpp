@@ -402,17 +402,18 @@ int ExpressionTree::dfs_latex (int cur_node, MyString& str_buff) {
             ASSERT(node.index >= 0);
             ASSERT(node.first_link >= 0);
             ASSERT(node.second_link >= 0);
-            switch (node.index) {
-                case DIV: {
+            bool left_brace = op_defs.priorities_left[node.index] < get_priority(node.first_link);
+            bool right_brace = op_defs.priorities_right[node.index] < get_priority(node.second_link);
+            if (node.index == DIV) {
                     str_buff.add_string(" \\frac {");
-                } break;
-                case POW: {}
-                    break;
-                default: {
-                    str_buff.add_string("\\left(");
-                }
+            }
+            if (left_brace) {
+                str_buff.add_string("\\left(");
             }
             dfs_latex(node.first_link, str_buff);
+            if (left_brace) {
+                str_buff.add_string("\\right)");
+            }
             switch (node.index) {
                 case DIV: {
                     str_buff.add_string("} {");
@@ -430,17 +431,15 @@ int ExpressionTree::dfs_latex (int cur_node, MyString& str_buff) {
                     str_buff.add_string(" ^ {");
                 }
             }
+            if (right_brace) {
+                str_buff.add_string("\\left(");
+            }
             dfs_latex(node.second_link, str_buff);
-            switch (node.index) {
-                case DIV: {
+            if (right_brace) {
+                str_buff.add_string("\\right)");
+            }
+            if (node.index == DIV || node.index == POW) {
                     str_buff.add_string("}");
-                } break;
-                case POW: {
-                    str_buff.add_string("}");
-                } break;
-                default: {
-                    str_buff.add_string("\\right)");
-                }
             }
         }
             break;
