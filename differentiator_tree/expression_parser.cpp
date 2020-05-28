@@ -64,14 +64,6 @@ int read_double (const char* start,
     }
 }
 
-int read_unit(const char* start,
-              operators_definitions& op_defs,
-              functions_definitions& func_defs,
-              Bor& variables_bor,
-              char** variables_names,
-              my_vector<tree_node>& tree,
-              int start_pos);
-
 int read_simple_expression (const char* start,
                            operators_definitions& op_defs,
                            functions_definitions& func_defs,
@@ -79,6 +71,7 @@ int read_simple_expression (const char* start,
                            char** variables_names,
                            my_vector<tree_node>& tree,
                            int start_pos) {
+    size_t last_size = tree.size();
     int pos = 0;
     double first = 0, second = 0;
     int first_node = start_pos;
@@ -111,8 +104,7 @@ int read_simple_expression (const char* start,
             second_node
     );
     if (s_l == -1) {
-        tree.pop_back();
-        tree.pop_back();
+        tree.resize(last_size);
         return -1;
     }
     tree[start_pos] = tree_node(operator_node, ans, first_node, second_node, 0);
@@ -126,6 +118,7 @@ int read_func(const char* start,
               char** variables_names,
               my_vector<tree_node>& tree,
               int start_pos) {
+    size_t last_size = tree.size();
     int pos = 0;
     while (start[pos] == ' ') pos++;
     int cur_func = func_defs.functions_bor.check_max(start + pos);
@@ -149,12 +142,15 @@ int read_func(const char* start,
             link
     );
     if (exprlen == -1) {
-        tree.pop_back();
+        tree.resize(last_size);
         return -1;
     }
     pos += exprlen;
     while (start[pos] == ' ') pos++;
-    if (start[pos] != ')') return -1;
+    if (start[pos] != ')') {
+        tree.resize(last_size);
+        return -1;
+    }
     pos++;
     while (start[pos] == ' ') pos++;
     tree[start_pos] = tree_node(function_node, cur_func, link, -1, 0);
@@ -190,7 +186,6 @@ int read_var(const char* start,
     pos += length;
     while (start[pos] == ' ')
         pos++;
-    tree.size();
     return pos;
 }
 
@@ -201,7 +196,7 @@ int read_unit(const char* start,
               char** variables_names,
               my_vector<tree_node>& tree,
               int start_pos) {
-    tree.size();
+    size_t last_size = tree.size();
     int pos = 0;
     while (start[pos] == ' ') pos++;
     if (start[pos] == '(') {
@@ -214,10 +209,14 @@ int read_unit(const char* start,
                 variables_names,
                 tree,
                 start_pos);
-        if (readed == -1) return -1;
+        if (readed == -1) {
+            return -1;
+        }
         pos += readed;
         while (start[pos] == ' ') pos++;
-        if (start[pos] != ')') return -1;
+        if (start[pos] != ')') {
+            return -1;
+        }
         pos++;
         while (start[pos] == ' ') pos++;
         return pos;

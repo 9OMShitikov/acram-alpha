@@ -156,6 +156,20 @@ public:
         return true;
     }
 
+    void resize (size_t new_size) {
+        if (new_size < buff_->size) {
+            for (int i = new_size; i < buff_->size; ++i) {
+                buff_->buff[i].~T();
+            }
+        }
+        buff_->size = new_size;
+        if ((new_size >= 2 && new_size * 4 < buff_->buff_size) || (new_size > buff_->buff_size)) {
+            buff_->buff_size = new_size * 2;
+            buff_ = (stack_buffer*) realloc(buff_, 4 * 6 + 1 + 4 + buff_->buff_size * sizeof(T));
+            *second_canary_ptr() = 265;
+        }
+    }
+
     void clear() {
         CHECK
         for (int i = 0; i < buff_->size; ++i) {
