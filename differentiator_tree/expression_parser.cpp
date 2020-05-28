@@ -110,7 +110,11 @@ int read_simple_expression (const char* start,
             tree,
             second_node
     );
-    if (s_l == -1) return -1;
+    if (s_l == -1) {
+        tree.pop_back();
+        tree.pop_back();
+        return -1;
+    }
     tree[start_pos] = tree_node(operator_node, ans, first_node, second_node, 0);
     return f_l + s_l + op_l;
 }
@@ -145,6 +149,7 @@ int read_func(const char* start,
             link
     );
     if (exprlen == -1) {
+        tree.pop_back();
         return -1;
     }
     pos += exprlen;

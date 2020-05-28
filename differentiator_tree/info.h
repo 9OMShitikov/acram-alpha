@@ -22,6 +22,7 @@ public:
     const static int operators_count = 6;
     char operators_names [operators_count] [10];
     char operators_differentials [operators_count] [128];
+    size_t read_priorities [operators_count];
     size_t priorities [operators_count];
     int priorities_left [operators_count];
     int priorities_right [operators_count];
@@ -34,6 +35,7 @@ public:
         priorities[SUM] = 4;
         priorities_left[SUM] = 4;
         priorities_right[SUM] = 4;
+        read_priorities[SUM] = 3;
 
         strcpy(operators_names[SUB], "-");
         strcpy(operators_differentials[SUB], "dx1 - dx2");
@@ -41,6 +43,7 @@ public:
         priorities[SUB] = 3;
         priorities_left[SUB] = 4;
         priorities_right[SUB] = 3;
+        read_priorities[SUB] = 3;
 
         strcpy(operators_names[MUL], "*");
         strcpy(operators_differentials[MUL], "(x2*dx1) + (x1*dx2)");
@@ -48,6 +51,7 @@ public:
         priorities[MUL] = 2;
         priorities_left[MUL] = 2;
         priorities_right[MUL] = 2;
+        read_priorities[MUL] = 2;
 
 
         strcpy(operators_names[DIV], "/");
@@ -56,6 +60,7 @@ public:
         priorities[DIV] = 1;
         priorities_left[DIV] = 4;
         priorities_right[DIV] = 4;
+        read_priorities[DIV] = 2;
 
         strcpy(operators_names[POW], "^");
         strcpy(operators_differentials[POW], "(x2*(x1^(x2-1))) * dx1");
@@ -63,6 +68,7 @@ public:
         priorities[POW] = 0;
         priorities_left[POW] = -1;
         priorities_right[POW] = 4;
+        read_priorities[POW] = 1;
 
         strcpy(operators_names[POW1], "@");
         strcpy(operators_differentials[POW1], "(x1^x2) * (((x2 / x1) * dx1) + (ln(x1) * dx2))");
@@ -70,6 +76,7 @@ public:
         priorities[POW1] = 0;
         priorities_left[POW1] = 0;
         priorities_right[POW1] = 0;
+        read_priorities[POW1] = 1;
     }
 
     double compute(operators op, double x1, double x2) {
