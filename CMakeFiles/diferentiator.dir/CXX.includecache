@@ -12,11 +12,23 @@ cstdio
 iostream
 -
 
+/home/oleg/Public/Oleg/course_2/ded/differentiator/containers/auto_free/auto_free.cpp
+auto_free.h
 /home/oleg/Public/Oleg/course_2/ded/differentiator/containers/auto_free/auto_free.h
+
+/home/oleg/Public/Oleg/course_2/ded/differentiator/containers/auto_free/auto_free.h
+
+/home/oleg/Public/Oleg/course_2/ded/differentiator/containers/bor/bor.cpp
+bor.h
+/home/oleg/Public/Oleg/course_2/ded/differentiator/containers/bor/bor.h
 
 /home/oleg/Public/Oleg/course_2/ded/differentiator/containers/bor/bor.h
 ../../asserts/my_assert.h
 /home/oleg/Public/Oleg/course_2/ded/differentiator/asserts/my_assert.h
+
+/home/oleg/Public/Oleg/course_2/ded/differentiator/containers/my_string/my_string.cpp
+my_string.h
+/home/oleg/Public/Oleg/course_2/ded/differentiator/containers/my_string/my_string.h
 
 /home/oleg/Public/Oleg/course_2/ded/differentiator/containers/my_string/my_string.h
 string_view
@@ -30,11 +42,19 @@ iostream
 ../../asserts/my_assert.h
 /home/oleg/Public/Oleg/course_2/ded/differentiator/asserts/my_assert.h
 
+/home/oleg/Public/Oleg/course_2/ded/differentiator/containers/my_vector/my_vector.cpp
+my_vector.h
+/home/oleg/Public/Oleg/course_2/ded/differentiator/containers/my_vector/my_vector.h
+
 /home/oleg/Public/Oleg/course_2/ded/differentiator/containers/my_vector/my_vector.h
 cstdint
 -
 iostream
 -
+
+/home/oleg/Public/Oleg/course_2/ded/differentiator/differentiator_tree/expression_parser.cpp
+expression_parser.h
+/home/oleg/Public/Oleg/course_2/ded/differentiator/differentiator_tree/expression_parser.h
 
 /home/oleg/Public/Oleg/course_2/ded/differentiator/differentiator_tree/expression_parser.h
 info.h
@@ -49,6 +69,10 @@ tree_node.h
 /home/oleg/Public/Oleg/course_2/ded/differentiator/containers/auto_free/auto_free.h
 ../containers/bor/bor.h
 /home/oleg/Public/Oleg/course_2/ded/differentiator/containers/bor/bor.h
+
+/home/oleg/Public/Oleg/course_2/ded/differentiator/differentiator_tree/expression_tree.cpp
+expression_tree.h
+/home/oleg/Public/Oleg/course_2/ded/differentiator/differentiator_tree/expression_tree.h
 
 /home/oleg/Public/Oleg/course_2/ded/differentiator/differentiator_tree/expression_tree.h
 info.h
@@ -83,6 +107,20 @@ expression_tree.h
 /home/oleg/Public/Oleg/course_2/ded/differentiator/differentiator_tree/expression_tree.h
 
 /home/oleg/Public/Oleg/course_2/ded/differentiator/differentiator_tree/tree_node.h
+
+/home/oleg/Public/Oleg/course_2/ded/differentiator/main.cpp
+cmath
+-
+containers/auto_free/auto_free.h
+/home/oleg/Public/Oleg/course_2/ded/differentiator/containers/auto_free/auto_free.h
+containers/my_string/my_string.h
+/home/oleg/Public/Oleg/course_2/ded/differentiator/containers/my_string/my_string.h
+differentiator_tree/expression_tree.h
+/home/oleg/Public/Oleg/course_2/ded/differentiator/differentiator_tree/expression_tree.h
+
+/home/oleg/Public/Oleg/course_2/ded/differentiator/work_with_file_functions/file_work_functions.cpp
+file_work_functons.h
+/home/oleg/Public/Oleg/course_2/ded/differentiator/work_with_file_functions/file_work_functons.h
 
 /home/oleg/Public/Oleg/course_2/ded/differentiator/work_with_file_functions/file_work_functons.h
 ../asserts/my_assert.h

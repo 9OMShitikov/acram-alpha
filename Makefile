@@ -69,8 +69,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/snap/clion/112/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/snap/clion/98/bin/cmake/linux/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -150,32 +150,32 @@ containers/auto_free/auto_free.cpp.s:
 	$(MAKE) -f CMakeFiles/diferentiator.dir/build.make CMakeFiles/diferentiator.dir/containers/auto_free/auto_free.cpp.s
 .PHONY : containers/auto_free/auto_free.cpp.s
 
-containers/Bor/Bor.o: containers/Bor/Bor.cpp.o
+containers/bor/bor.o: containers/bor/bor.cpp.o
 
-.PHONY : containers/Bor/Bor.o
+.PHONY : containers/bor/bor.o
 
 # target to build an object file
-containers/Bor/Bor.cpp.o:
-	$(MAKE) -f CMakeFiles/diferentiator.dir/build.make CMakeFiles/diferentiator.dir/containers/Bor/Bor.cpp.o
-.PHONY : containers/Bor/Bor.cpp.o
+containers/bor/bor.cpp.o:
+	$(MAKE) -f CMakeFiles/diferentiator.dir/build.make CMakeFiles/diferentiator.dir/containers/bor/bor.cpp.o
+.PHONY : containers/bor/bor.cpp.o
 
-containers/Bor/Bor.i: containers/Bor/Bor.cpp.i
+containers/bor/bor.i: containers/bor/bor.cpp.i
 
-.PHONY : containers/Bor/Bor.i
+.PHONY : containers/bor/bor.i
 
 # target to preprocess a source file
-containers/Bor/Bor.cpp.i:
-	$(MAKE) -f CMakeFiles/diferentiator.dir/build.make CMakeFiles/diferentiator.dir/containers/Bor/Bor.cpp.i
-.PHONY : containers/Bor/Bor.cpp.i
+containers/bor/bor.cpp.i:
+	$(MAKE) -f CMakeFiles/diferentiator.dir/build.make CMakeFiles/diferentiator.dir/containers/bor/bor.cpp.i
+.PHONY : containers/bor/bor.cpp.i
 
-containers/Bor/Bor.s: containers/Bor/Bor.cpp.s
+containers/bor/bor.s: containers/bor/bor.cpp.s
 
-.PHONY : containers/Bor/Bor.s
+.PHONY : containers/bor/bor.s
 
 # target to generate assembly for a file
-containers/Bor/Bor.cpp.s:
-	$(MAKE) -f CMakeFiles/diferentiator.dir/build.make CMakeFiles/diferentiator.dir/containers/Bor/Bor.cpp.s
-.PHONY : containers/Bor/Bor.cpp.s
+containers/bor/bor.cpp.s:
+	$(MAKE) -f CMakeFiles/diferentiator.dir/build.make CMakeFiles/diferentiator.dir/containers/bor/bor.cpp.s
+.PHONY : containers/bor/bor.cpp.s
 
 containers/my_string/my_string.o: containers/my_string/my_string.cpp.o
 
@@ -378,9 +378,9 @@ help:
 	@echo "... containers/auto_free/auto_free.o"
 	@echo "... containers/auto_free/auto_free.i"
 	@echo "... containers/auto_free/auto_free.s"
-	@echo "... containers/Bor/Bor.o"
-	@echo "... containers/Bor/Bor.i"
-	@echo "... containers/Bor/Bor.s"
+	@echo "... containers/bor/bor.o"
+	@echo "... containers/bor/bor.i"
+	@echo "... containers/bor/bor.s"
 	@echo "... containers/my_string/my_string.o"
 	@echo "... containers/my_string/my_string.i"
 	@echo "... containers/my_string/my_string.s"
