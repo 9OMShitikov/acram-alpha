@@ -72,7 +72,7 @@ int read_unit(const char* start,
               my_vector<tree_node>& tree,
               int start_pos);
 
-int read_simple_expression(const char* start,
+int read_simple_expression (const char* start,
                            operators_definitions& op_defs,
                            functions_definitions& func_defs,
                            Bor& variables_bor,

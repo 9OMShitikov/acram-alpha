@@ -33,7 +33,7 @@ int main(int args, char* argv[]) {
         ExpressionTree diff_tree;
         diff_tree.copy_tree(my_tree);
         latex_string.add_string("F_{");
-        latex_string.add_string(my_tree.variables.get_ptr()[i].name);
+        latex_string.add_string(my_tree.variables.ptr[i].name);
         latex_string.add_string("} = ");
 
         diff_tree.differentiate_tree(i);

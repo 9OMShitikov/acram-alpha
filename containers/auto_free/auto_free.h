@@ -12,9 +12,6 @@ public:
         if (ptr != nullptr)
             free(ptr);
     }
-    T* get_ptr() {
-        return ptr;
-    }
     AutoFree(const AutoFree&) =  delete;
     void operator=(const AutoFree&) = delete;
 

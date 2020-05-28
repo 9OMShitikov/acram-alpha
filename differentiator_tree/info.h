@@ -18,6 +18,7 @@ enum operators {
 
 class operators_definitions {
 public:
+    const static int max_priority = 4;
     const static int operators_count = 6;
     char operators_names [operators_count] [10];
     char operators_differentials [operators_count] [128];

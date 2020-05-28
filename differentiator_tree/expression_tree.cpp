@@ -59,7 +59,7 @@ ExpressionTree::~ExpressionTree(){
 
 void ExpressionTree::read_tree (AutoFree<char>& buff, int expr_size) {
     expr_size --;
-    buff.get_ptr()[expr_size] = '$';
+    buff.ptr[expr_size] = '$';
     buff.ptr[expr_size + 1] = '\0';
     Bor variables_bor;
     my_vector<tree_node> tree;
