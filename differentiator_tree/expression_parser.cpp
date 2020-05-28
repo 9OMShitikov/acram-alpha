@@ -65,50 +65,81 @@ int read_double (const char* start,
 }
 
 int read_simple_expression (const char* start,
+                            operators_definitions& op_defs,
+                            functions_definitions& func_defs,
+                            Bor& variables_bor,
+                            char** variables_names,
+                            my_vector<tree_node>& tree,
+                            int start_pos) {
+    return read_simple_expression_with_priority (start,
+    op_defs,
+    func_defs,
+    variables_bor,
+    variables_names,
+    tree,
+    start_pos, op_defs.max_priority);
+}
+
+int read_simple_expression_with_priority (const char* start,
                            operators_definitions& op_defs,
                            functions_definitions& func_defs,
                            Bor& variables_bor,
                            char** variables_names,
                            my_vector<tree_node>& tree,
-                           int start_pos) {
+                           int start_pos, int priority) {
     size_t last_size = tree.size();
+    if (priority == 0) {
+        return read_unit(
+                start,
+                op_defs, func_defs,
+                variables_bor,
+                variables_names,
+                tree,
+                start_pos
+        );
+    }
     int pos = 0;
-    double first = 0, second = 0;
     int first_node = start_pos;
-    int f_l = read_unit(
+    int f_l = read_simple_expression_with_priority (
             start + pos,
             op_defs, func_defs,
             variables_bor,
             variables_names,
             tree,
-            first_node
+            first_node, priority - 1
     );
-    if (f_l == -1) return -1;
-    int ans = op_defs.operators_bor.check_max(start + f_l);
-    if (ans == -1) {
-        return f_l;
-    }
-    first_node = tree.size();
-    tree.push_back(tree[start_pos]);
-    int op_l = strlen(op_defs.operators_names[ans]);
-
-    int second_node = tree.size();
-    tree.push_back(tree_node());
-    int s_l = read_unit(
-            start + pos + op_l + f_l,
-            op_defs,
-            func_defs,
-            variables_bor,
-            variables_names,
-            tree,
-            second_node
-    );
-    if (s_l == -1) {
-        tree.resize(last_size);
+    if (f_l == -1) {
         return -1;
     }
-    tree[start_pos] = tree_node(operator_node, ans, first_node, second_node, 0);
-    return f_l + s_l + op_l;
+    pos = f_l;
+    while (true) {
+        int ans = op_defs.operators_bor.check_max(start + pos);
+        if (ans == -1 || op_defs.read_priorities[ans] != priority) {
+            return pos;
+        }
+        first_node = tree.size();
+        tree.push_back(tree[start_pos]);
+        int op_l = strlen(op_defs.operators_names[ans]);
+
+        int second_node = tree.size();
+        tree.push_back(tree_node());
+        int s_l = read_simple_expression_with_priority(
+                start + pos + op_l,
+                op_defs,
+                func_defs,
+                variables_bor,
+                variables_names,
+                tree,
+                second_node,
+                priority - 1
+        );
+        if (s_l == -1) {
+            tree.resize(last_size);
+            return -1;
+        }
+        tree[start_pos] = tree_node(operator_node, ans, first_node, second_node, 0);
+        pos += s_l + op_l;
+    }
 }
 
 int read_func(const char* start,
