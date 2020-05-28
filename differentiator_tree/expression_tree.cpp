@@ -117,5 +117,6 @@ int ExpressionTree::get_priority(int index) const{
     if (node.type != operator_node) {
         return -1;
     }
-    return op_defs.priorities[index];
+
+    return op_defs.priorities[node.index];
 }
