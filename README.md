@@ -1,30 +1,31 @@
-# Дифференциатор
- Программа для дифференцирования выражений.
+# Acram-alpha
+ Tool for differentiating expressions and printing results in LaTex
+* pdflatex is required
+### Input format:
+* Input file(file with expression) and output file names should be given as arguments to the program
+* Default input file name is input.txt, default output file name is output.txt.
+* If there is only one file name it counts as input file. Output file name is default.
+* If there are no file names input file and output file names are default. 
+##### Input expression format:
+Expression in standart notation. 
+* Variables' names - length is lesser or equal than 99 characters, 
+characters are latin characters from a to z 
+and digits from 0 to 9. First character is latin. Examples: x1, er3.
+* Numbers - real. Format is standard.
+Examples: 2, 4.5, -3, -4.8.
+* Mathematical operators:
+  * addition (+)
+  * multiplication (*)
+  * subtraction (-)
+  * division (/)
+  * exponentiation (^)
+* Functions:
+  * sine (sin)
+  * cosine (cos)
+  * tangent (tan)
+  * natural logarithm (ln)
+  * exponent (exp)
 
-### Формат ввода:
-Программе подаются имя входного файла и имя выходного
-(Если нет выходного, вывод в differentiated.tex и differentiated.pdf)
-(Если нет входного, выражение ищется в input.txt)
-##### Формат входного выражения:
-Выражение в стандартной нотации. 
-* Имена аргументов - состоят не более чем из 99 символов, 
-символы - буквы латинского алфавита от a до z 
-и цифры от 0 до 9. Первый символ - буква. Примеры: x1, er3.
-* Числа - действительные, любого знака. Форма стандартная.
-Примеры: 2, 4.5, -3, -4.8.
-* Операторы:
-  * сложения (+)
-  * умножения (*)
-  * вычитания (-)
-  * деления (/)
-  * возведения в степень (^)
-* Функции:
-  * синус (sin)
-  * косинус (cos)
-  * тангенс (tan)
-  * натуральный логарифм (ln)
-  * экспонента (exp)
-
-* Пример выражения: sin(x^2) + cos(y*3)^4 - z.
-### Формат вывода:
- Файл .tex с кодом на LaTex, файлы компиляции и файл .pdf с производными выражения по всем переменным и припиской "Утрём нос Стивену Вольфраму!"
+* Expression example: sin(x^2) + cos(y*3)^4 - z.
+### Output format:
+ .tex file with LaTex code, compilation files and .pdf files with derivatives of this expression for all variables and a "differentiation done" postscript.
