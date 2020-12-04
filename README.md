@@ -28,4 +28,4 @@ Examples: 2, 4.5, -3, -4.8.
 
 * Expression example: sin(x^2) + cos(y*3)^4 - z.
 ### Output format:
- .tex file with LaTex code, compilation files and .pdf files with derivatives of this expression for all variables and a "differentiation done" postscript.
+ .tex file with LaTex code, compilation files and .pdf files with derivatives of this expression for all variables.
