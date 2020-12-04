@@ -27,7 +27,7 @@ int main(int args, char* argv[]) {
 \\usepackage[russian,english]{babel}\n\
 \\usepackage{amssymb,amsmath,amsthm}\n\
 \\begin{document}\n\
-\\par Утрем нос Стивену Вольфраму!\n\
+\\par Derivatives\n\
 \\begin{gather*}\n");
     for (int i = 0; i < my_tree.variables_count; ++i) {
         ExpressionTree diff_tree;
